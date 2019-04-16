@@ -25,3 +25,7 @@ Rectangle::Rectangle(double width, double height) : width(width), height(height)
 double Rectangle::getArea() const {
     return getWidth() * getHeight();
 }
+
+bool Rectangle::isLargerThan(Rectangle *otherRectangle) const {
+    return this->getArea() > otherRectangle->getArea();
+}

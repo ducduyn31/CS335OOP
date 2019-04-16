@@ -1,10 +1,5 @@
-//
-// Created by danielng on 16/04/2019.
-//
-
 #ifndef CS335OOP_RECTANGLE_H
 #define CS335OOP_RECTANGLE_H
-
 
 #include <math.h>
 
@@ -23,6 +18,8 @@ public:
     void setHeight(double newHeight);
 
     double getArea() const;
+
+    bool isLargerThan(Rectangle *otherRectangle) const;
 };
 
 

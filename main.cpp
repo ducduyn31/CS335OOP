@@ -6,11 +6,19 @@ using namespace std;
 
 int main(int argc, char **args) {
 
-    Rectangle *rec1 = new Rectangle(20, 3);
-    Rectangle *rec2 = new Rectangle(30, 1);
+    double width, height;
+    cout << "This program will calculate the area of a\n"
+         << "rectangle. What is the width? ";
+    cin >> width;
+    cout << "What is the height? ";
+    cin >> height;
 
-    cout << rec1->getArea() << endl;
-    cout << rec2->getArea() << endl;
+    auto *r = new Rectangle(width, height);
+
+    cout << "Here is the rectangle's data:\n";
+    cout << "Width: " << r->getWidth() << endl;
+    cout << "Height: " << r->getHeight() << endl;
+    cout << "Area: " << r->getArea() << endl;
 
     return 0;
 }
