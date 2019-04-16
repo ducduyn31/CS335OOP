@@ -19,7 +19,7 @@ public:
 
     double getArea() const;
 
-    bool isLargerThan(Rectangle *otherRectangle) const;
+    int compareWith(Rectangle *otherRectangle) const;
 };
 
 

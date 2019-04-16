@@ -1,24 +1,47 @@
 #include <iostream>
+#include "Rectangle.h"
 
 using namespace std;
 
-#include "Rectangle.h"
+void assertLength(double&);
+
+
+struct RoomInfo {
+    char name[25];
+    Rectangle *physicalInfo;
+};
 
 int main(int argc, char **args) {
 
-    double width, height;
-    cout << "This program will calculate the area of a\n"
-         << "rectangle. What is the width? ";
-    cin >> width;
-    cout << "What is the height? ";
-    cin >> height;
+    RoomInfo rooms[3];
 
-    auto *r = new Rectangle(width, height);
+    for (auto &room : rooms) {
+        cout << "Room name:\t\t";
+        cin.getline(room.name, 25);
+        double width, height;
+        cout << "Room Width:\t\t";
+        assertLength(width);
+        cout << "Room Height:\t";
+        assertLength(height);
+        room.physicalInfo = new Rectangle(width, height);
+        cout << "=========================\n";
+        cin.ignore(256, '\n');
+    }
 
-    cout << "Here is the rectangle's data:\n";
-    cout << "Width: " << r->getWidth() << endl;
-    cout << "Height: " << r->getHeight() << endl;
-    cout << "Area: " << r->getArea() << endl;
+    double totalArea = 0;
+    for (auto & room : rooms) totalArea += room.physicalInfo->getArea();
+
+    cout << "Total area is:\t" << totalArea << endl;
 
     return 0;
+}
+
+void assertLength(double &length) {
+    double temp;
+    do {
+        cin >> temp;
+        if (temp <= 0)
+            cout << "Must be > 0\n";
+    } while (temp <= 0);
+    length = temp;
 }

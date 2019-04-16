@@ -26,6 +26,6 @@ double Rectangle::getArea() const {
     return getWidth() * getHeight();
 }
 
-bool Rectangle::isLargerThan(Rectangle *otherRectangle) const {
-    return this->getArea() > otherRectangle->getArea();
+int Rectangle::compareWith(Rectangle *otherRectangle) const {
+    return this->getArea() > otherRectangle->getArea() ? 1 : this->getArea() == otherRectangle->getArea() ? 0 : -1;
 }
